@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Carrito de Compras</title>
+  <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body>
+  <div id="cart">
+    <h2>Carrito de Compras</h2>
+    <ul id="cart-items">
+      <!-- Los elementos del carrito se mostrarán aquí -->
+    </ul>
+    <h3>Total: $<span id="total">0.00</span> CLP</h3>
+  </div>
+
+  <div id="products">
+    <h2>Productos</h2>
+    <ul id="product-list">
+      <li data-price="5000">
+        <img src="./img/polera-negra.png" alt="polera-negra">
+        Polera - $5,000 CLP <button onclick="addToCart(this)">Agregar al carrito</button>
+      </li>
+      <li data-price="12000">
+        <img src="./img/conjunto-negro.png" alt="conjunto-negro">
+        Conjunto Negro - $12,000 CLP <button onclick="addToCart(this)">Agregar al carrito</button>
+      </li>
+      <li data-price="8000">
+        <img src="./img/gorra-B.png" alt="gorra-B">
+        Gorra - $8,000 CLP <button onclick="addToCart(this)">Agregar al carrito</button>
+      </li>
+      <!-- Agrega más productos aquí -->
+    </ul>
+  </div>
+
+  <script src="./main.js"></script>
+</body>
+</html>
+
+
