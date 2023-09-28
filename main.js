@@ -5,8 +5,15 @@ function addToCart(button) {
   const product = button.parentElement;
   const productName = product.innerText.split(' - ')[0];
   const productPrice = parseFloat(product.getAttribute('data-price'));
-  cartItems.push({ name: productName, price: productPrice });
-  
+
+  const existingProduct = cartItems.find(item => item.name === productName);
+
+  if (existingProduct) {
+    existingProduct.quantity += 1;
+  } else {
+    cartItems.push({ name: productName, price: productPrice, quantity: 1 });
+  }
+
   updateCart();
 }
 
@@ -18,9 +25,9 @@ function updateCart() {
 
   cartItems.forEach(item => {
     const li = document.createElement('li');
-    li.innerText = `${item.name} - $${item.price.toFixed(2)}`;
+    li.innerText = `${item.name} - $${(item.price * item.quantity).toFixed(2)} CLP (${item.quantity} unidad${item.quantity > 1 ? 'es' : ''})`;
     cartList.appendChild(li);
-    total += item.price;
+    total += item.price * item.quantity;
   });
 
   totalElement.innerText = total.toFixed(2);
